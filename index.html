@@ -118,13 +118,13 @@
 
     .nav-links a:hover {
       color: var(--text-accent);
-      background: #ff6b35;
+      background: var(--primary-orange-light);
       transform: translateY(-1px);
     }
 
     .nav-links a.active {
       color: var(--text-accent);
-      background: #ff6b35;
+      background: var(--primary-orange-light);
     }
 
     .download-link {
@@ -228,7 +228,7 @@
     /* Image Slides Section */
     .slides-section {
       padding: 100px 0;
-      background: #000000;
+      background: var(--neutral-black);
       position: relative;
       overflow: hidden;
       margin-top: -1px;
@@ -322,7 +322,7 @@
     }
 
     .slide-nav:hover {
-      background: #ff6b35;
+      background: var(--primary-orange-light);
       transform: translateY(-50%) scale(1.1);
     }
 
@@ -354,7 +354,7 @@
     }
 
     .indicator.active {
-      background: #181818;
+      background: var(--neutral-darker);
       transform: scale(1.2);
     }
 
@@ -367,7 +367,7 @@
       font-size: 36px;
       font-weight: 700;
       margin-bottom: 16px;
-      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      background: linear-gradient(135deg, var(--neutral-white), var(--neutral-lighter));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -375,7 +375,7 @@
 
     .section-subtitle {
       text-align: center;
-      color: #ffffff;
+      color: var(--neutral-white);
       margin-bottom: 60px;
       font-size: 18px;
     }
@@ -407,7 +407,7 @@
     .product-image {
       width: 100%;
       height: 250px;
-      background: linear-gradient(135deg, #1e293b, #334155);
+      background: linear-gradient(135deg, var(--neutral-darker), var(--neutral-dark));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -423,14 +423,14 @@
 
     .product-image .placeholder {
       font-size: 64px;
-      color: #475569;
+      color: var(--neutral-gray);
     }
 
     .product-badge {
       position: absolute;
       top: 16px;
       right: 16px;
-      background: #e74200;
+      background: var(--primary-orange);
       color: white;
       padding: 6px 12px;
       border-radius: 20px;
@@ -446,11 +446,11 @@
       font-size: 20px;
       font-weight: 600;
       margin-bottom: 8px;
-      color: #f8fafc;
+      color: var(--neutral-light);
     }
 
     .product-description {
-      color: #9ca3af;
+      color: var(--neutral-gray);
       margin-bottom: 16px;
       font-size: 14px;
     }
@@ -461,7 +461,7 @@
     }
 
     .product-features li {
-      color: #ffffff;
+      color: var(--neutral-white);
       font-size: 14px;
       margin-bottom: 6px;
       display: flex;
@@ -471,7 +471,7 @@
 
     .product-features li::before {
       content: "✓";
-      color: #f3be00;
+      color: var(--accent-gold-dark);
       font-weight: bold;
     }
 
@@ -485,17 +485,17 @@
     .current-price {
       font-size: 28px;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--neutral-white);
     }
 
     .original-price {
       font-size: 18px;
-      color: #6b7280;
+      color: var(--neutral-gray);
       text-decoration: line-through;
     }
 
     .discount {
-      background: #ff6b35;
+      background: var(--primary-orange-light);
       color: white;
       padding: 4px 8px;
       border-radius: 6px;
@@ -505,7 +505,7 @@
 
     .product-btn {
       width: 100%;
-      background: linear-gradient(135deg, #e74b0e, #f97316);
+      background: var(--bg-gradient-orange);
       color: white;
       border: none;
       padding: 12px 24px;
@@ -518,18 +518,18 @@
     }
 
     .product-btn:hover {
-      background: linear-gradient(135deg, #dc2626, #e74b0e);
+      background: linear-gradient(135deg, var(--error-red), var(--primary-orange));
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(231, 75, 14, 0.3);
+      box-shadow: 0 8px 20px var(--shadow-orange);
     }
 
     .cta-section {
       text-align: center;
       padding: 60px 0;
       background: white;
-      border: 1px solid rgba(0, 123, 255, 0.1);
+      border: 1px solid var(--border-light);
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px var(--shadow-light);
       margin: 40px 0;
     }
 
@@ -537,17 +537,17 @@
       font-size: 32px;
       font-weight: 700;
       margin-bottom: 16px;
-      color: #000000;
+      color: var(--neutral-black);
     }
 
     .cta-subtitle {
-      color: #000000;
+      color: var(--neutral-black);
       margin-bottom: 32px;
       font-size: 18px;
     }
 
     .btn {
-      background: linear-gradient(135deg, #ff6b35, #ff6b35);
+      background: var(--bg-gradient-orange);
       color: white;
       border: none;
       padding: 16px 32px;

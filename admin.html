@@ -25,12 +25,12 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      color: #666;
+      color: var(--neutral-gray);
       font-size: 14px;
-      background: rgba(0, 123, 255, 0.1);
+      background: var(--border-light);
       padding: 8px 12px;
       border-radius: 20px;
-      border: 1px solid rgba(0, 123, 255, 0.2);
+      border: 1px solid var(--border-medium);
     }
 
     .container { 
@@ -47,7 +47,7 @@
     }
 
     .card { 
-      background: white;
+      background: var(--neutral-white);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(0, 123, 255, 0.1); 
       border-radius: 16px; 
@@ -159,8 +159,8 @@
     }
 
     .btn { 
-      background: #007bff; 
-      color: white; 
+      background: var(--secondary-blue); 
+      color: var(--neutral-white); 
       border: none; 
       padding: 10px 16px; 
       border-radius: 8px; 
@@ -174,7 +174,7 @@
     }
 
     .btn:hover {
-      background: #0056b3;
+      background: var(--secondary-blue-dark);
       transform: translateY(-1px);
     }
 
@@ -185,18 +185,18 @@
     }
 
     .btn-secondary {
-      background: #f8f9fa;
-      border: 1px solid rgba(0, 123, 255, 0.2);
-      color: #007bff;
+      background: var(--neutral-light);
+      border: 1px solid var(--border-medium);
+      color: var(--secondary-blue);
     }
 
     .btn-secondary:hover {
-      background: rgba(0, 123, 255, 0.1);
-      border-color: rgba(0, 123, 255, 0.3);
+      background: var(--border-light);
+      border-color: var(--border-medium);
     }
 
     .btn-danger {
-      background: #dc2626;
+      background: var(--error-red);
     }
 
     .btn-danger:hover {
@@ -312,18 +312,18 @@
     }
 
     .publish-card {
-      background: white;
-      border: 1px solid rgba(0, 123, 255, 0.1);
+      background: var(--neutral-white);
+      border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 20px;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px var(--shadow-light);
     }
 
     .publish-card:hover {
-      border-color: rgba(0, 123, 255, 0.3);
+      border-color: var(--border-medium);
       transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 15px 35px var(--shadow-medium);
     }
 
     .publish-header {
@@ -334,7 +334,7 @@
     }
 
     .publish-header h4 {
-      color: #f8fafc;
+      color: var(--text-primary);
       font-size: 16px;
       font-weight: 600;
       margin: 0;
@@ -345,8 +345,8 @@
       border-radius: 20px;
       font-size: 12px;
       font-weight: 500;
-      background: rgba(75, 85, 99, 0.5);
-      color: #9ca3af;
+      background: var(--neutral-light);
+      color: var(--neutral-gray);
     }
 
     .status-badge.active {
@@ -422,22 +422,22 @@
     }
 
     .deployment-logs {
-      background: white;
-      border: 1px solid rgba(0, 123, 255, 0.1);
+      background: var(--neutral-white);
+      border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px var(--shadow-light);
     }
 
     .deployment-logs h4 {
-      color: #2c3e50;
+      color: var(--text-primary);
       font-size: 16px;
       font-weight: 600;
       margin: 0 0 15px 0;
     }
 
     .logs-container {
-      background: rgba(0, 0, 0, 0.3);
+      background: var(--neutral-darker);
       border-radius: 8px;
       padding: 15px;
       max-height: 200px;
@@ -448,7 +448,7 @@
       display: flex;
       gap: 15px;
       padding: 8px 0;
-      border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+      border-bottom: 1px solid var(--border-light);
       font-family: 'Courier New', monospace;
       font-size: 13px;
     }
@@ -458,16 +458,17 @@
     }
 
     .log-time {
-      color: #10b981;
+      color: var(--success-green);
       font-weight: 600;
       min-width: 80px;
     }
 
     .log-message {
-      color: #d1d5db;
+      color: var(--neutral-lighter);
     }
 
-  </style>  @media (max-width: 768px) {
+    /* Responsive Design */
+    @media (max-width: 768px) {
       .stats-grid {
         grid-template-columns: 1fr;
       }
@@ -488,14 +489,29 @@
   </style>
 </head>
 <body>
-  <!-- Header removed for cleaner admin interface -->
+  <!-- Admin Header -->
+  <header style="background: var(--neutral-white); border-bottom: 1px solid var(--border-light); padding: 16px 0; box-shadow: 0 2px 10px var(--shadow-light);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 24px;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: var(--text-primary);">
+          <i class="fas fa-tachometer-alt" style="color: var(--primary-orange);"></i> Admin Dashboard
+        </h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <span>Welcome, <span id="username">Admin</span></span>
+        </div>
+        <button id="logout" class="btn btn-secondary" title="Logout">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </div>
+  </header>
 
   <div class="container">
-    <!-- Minimal control bar -->
+    <!-- Control bar -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding: 16px; background: rgba(255, 255, 255, 0.8); border-radius: 12px; backdrop-filter: blur(10px);">
-      <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: var(--text-primary);">
-        <i class="fas fa-tachometer-alt"></i> Admin Dashboard
-      </h1>
       <div style="display: flex; gap: 12px; align-items: center;">
         <button id="refresh" class="btn" onclick="loadStats()" title="Refresh Data">
           <i class="fas fa-sync-alt"></i> Refresh
@@ -829,7 +845,7 @@
         const data = await response.json();
         
         if (!data.authenticated) {
-          window.location.href = '/admin/login';
+          window.location.href = '/admin-login';
           return;
         }
         
@@ -837,7 +853,7 @@
         loadStats();
       } catch (error) {
         console.error('Auth check failed:', error);
-        window.location.href = '/admin/login';
+        window.location.href = '/admin-login';
       }
     });
 
@@ -850,7 +866,7 @@
         });
         
         if (response.ok) {
-          window.location.href = '/admin/login';
+          window.location.href = '/admin-login';
         }
       } catch (error) {
         console.error('Logout failed:', error);
