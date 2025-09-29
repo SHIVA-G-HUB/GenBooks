@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Premium Product Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Admin login page specific styles - CSS variables are imported from styles.css */
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .back-to-site {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            background: var(--neutral-white);
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        .back-to-site:hover {
+            color: var(--secondary-blue);
+            background: var(--neutral-light);
+            border-color: var(--border-medium);
+            transform: translateY(-2px);
+        }
+
+        .login-container {
+            background: white;
+            border: 1px solid rgba(0, 123, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border: 1px solid rgba(0, 123, 255, 0.1);
+            border-radius: 12px;
+            color: #2c3e50;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+            background: white;
+        }
+
+        .form-group input::placeholder {
+            color: #666;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        .login-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #007bff;
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-to-site">
+        <i class="fas fa-arrow-left"></i> Back to Website
+    </a>
+    
+    <div class="login-container">
+        <div class="login-header">
+            <h1><i class="fas fa-shield-alt"></i> Admin Login</h1>
+            <p>Access the admin dashboard</p>
+        </div>
+
+
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="login-button" id="loginButton">
+                <div class="button-content">
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                    <span id="buttonText">Login to Dashboard</span>
+                </div>
+            </button>
+        </form>
+
+        <div class="back-link">
+            <a href="/"><i class="fas fa-arrow-left"></i> Back to Website</a>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.getElementById('loginButton');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const buttonText = document.getElementById('buttonText');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        // Enhanced input validation
+        function validateUsername(username) {
+            const errors = [];
+            
+            if (!username || typeof username !== 'string') {
+                errors.push('Username is required');
+            } else if (username.length < 3 || username.length > 50) {
+                errors.push('Username must be between 3 and 50 characters');
+            } else if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+                errors.push('Username can only contain letters, numbers, underscores, and hyphens');
+            }
+            
+            return errors;
+        }
+
+        function validatePassword(password) {
+            const errors = [];
+            
+            if (!password || typeof password !== 'string') {
+                errors.push('Password is required');
+            } else if (password.length < 6 || password.length > 100) {
+                errors.push('Password must be between 6 and 100 characters');
+            }
+            
+            return errors;
+        }
+
+        function showError(message, details = null) {
+            if (details && Array.isArray(details) && details.length > 0) {
+                errorMessage.innerHTML = `<strong>${message}</strong><br>• ${details.join('<br>• ')}`;
+            } else {
+                errorMessage.textContent = message;
+            }
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+
+        function resetMessages() {
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+        }
+
+        function setLoadingState(isLoading, loadingText = 'Logging in...') {
+            loginButton.disabled = isLoading;
+            loadingSpinner.style.display = isLoading ? 'block' : 'none';
+            buttonText.textContent = isLoading ? loadingText : 'Login to Dashboard';
+        }
+
+        // Real-time input validation
+        usernameInput.addEventListener('input', () => {
+            const username = usernameInput.value.trim();
+            const errors = validateUsername(username);
+            
+            if (username && errors.length > 0) {
+                usernameInput.style.borderColor = '#e74c3c';
+            } else {
+                usernameInput.style.borderColor = '#ddd';
+            }
+        });
+
+        passwordInput.addEventListener('input', () => {
+            const password = passwordInput.value.trim();
+            const errors = validatePassword(password);
+            
+            if (password && errors.length > 0) {
+                passwordInput.style.borderColor = '#e74c3c';
+            } else {
+                passwordInput.style.borderColor = '#ddd';
+            }
+        });
+
+        // Enhanced form submission
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            // Client-side validation
+            const usernameErrors = validateUsername(username);
+            const passwordErrors = validatePassword(password);
+            const allErrors = [...usernameErrors, ...passwordErrors];
+
+            if (allErrors.length > 0) {
+                showError('Please fix the following errors:', allErrors);
+                return;
+            }
+
+            resetMessages();
+            setLoadingState(true);
+
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    showSuccess('Login successful! Redirecting to dashboard...');
+                    setLoadingState(true, 'Redirecting...');
+                    
+                    // Clear form for security
+                    usernameInput.value = '';
+                    passwordInput.value = '';
+                    
+                    setTimeout(() => {
+                        window.location.href = '/admin';
+                    }, 1500);
+                } else {
+                    // Handle different error types
+                    let errorMsg = 'Login failed. Please try again.';
+                    let errorDetails = null;
+
+                    if (response.status === 429) {
+                        errorMsg = data.error || 'Too many login attempts. Please wait before trying again.';
+                        if (data.retryAfter) {
+                            const minutes = Math.ceil(data.retryAfter / 60);
+                            errorMsg += ` Try again in ${minutes} minute${minutes > 1 ? 's' : ''}.`;
+                        }
+                    } else if (response.status === 400 && data.details) {
+                        errorMsg = data.error || 'Invalid input';
+                        errorDetails = data.details;
+                    } else if (response.status === 401) {
+                        errorMsg = data.message || 'Invalid username or password. Please check your credentials.';
+                    } else if (response.status >= 500) {
+                        errorMsg = data.message || 'Server error. Please try again later.';
+                    } else {
+                        errorMsg = data.error || data.message || 'Login failed. Please try again.';
+                    }
+
+                    showError(errorMsg, errorDetails);
+                    setLoadingState(false);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    showError('Network error. Please check your connection and try again.');
+                } else {
+                    showError('An unexpected error occurred. Please try again.');
+                }
+                
+                setLoadingState(false);
+            }
+        });
+
+        // Enhanced authentication check
+        window.addEventListener('load', async () => {
+            try {
+                const response = await fetch('/api/admin/check', {
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.authenticated) {
+                        showSuccess('Already logged in. Redirecting to dashboard...');
+                        setLoadingState(true, 'Redirecting...');
+                        
+                        setTimeout(() => {
+                            window.location.href = '/admin';
+                        }, 1000);
+                    }
+                } else {
+                    console.warn('Auth check failed:', response.status);
+                }
+            } catch (error) {
+                console.warn('Auth check error:', error);
+                // Not logged in or network error, stay on login page
+            }
+        });
+
+        // Keyboard accessibility improvements
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && document.activeElement === usernameInput) {
+                passwordInput.focus();
+            }
+        });
+
+        // Auto-focus username field on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                usernameInput.focus();
+            }, 100);
+        });
+
+
+    </script>
+</body>
+</html>
