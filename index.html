@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gentize Innovations | Professional Digitization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-black">
+
+    <div id="whatsapp-bot" class="fixed bottom-6 right-6 z-50">
+        <div id="bot-bubble" class="hidden bg-white shadow-2xl rounded-2xl p-4 mb-4 border-2 border-[#FF6B00] w-64">
+            <p class="text-sm font-bold text-[#FF6B00] mb-2 font-black">Gentize Support</p>
+            <p class="text-xs text-gray-600 mb-4">How can we help you scan your documents today?</p>
+            <a href="https://wa.me/917358534315" class="block bg-[#FF6B00] text-black font-bold text-center py-2 rounded-lg text-sm uppercase">Chat Now</a>
+        </div>
+        <button onclick="toggleBot()" class="bg-[#FF6B00] text-black w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-3xl hover:scale-110 transition border-4 border-black">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
+    <nav class="bg-black border-b-4 border-[#FF6B00] sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-black text-white italic tracking-tighter">GENTIZE <span class="text-[#FF6B00]">INNOVATIONS</span></div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#process" class="font-bold text-white hover:text-[#FF6B00] uppercase text-sm">Our Process</a>
+                <a href="#faq" class="font-bold text-white hover:text-[#FF6B00] uppercase text-sm">FAQ</a>
+                <a href="#consultation" class="bg-[#FF6B00] text-black px-5 py-2 rounded font-black uppercase text-sm hover:bg-white transition">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-black text-white py-20 px-6">
+        <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-5xl font-black mb-6 leading-tight uppercase">Digital Archiving <br><span class="text-[#FF6B00]">Experts</span></h1>
+                <p class="text-gray-400 mb-8 border-l-4 border-[#FF6B00] pl-4">We provide complete scan and digitization services for businesses, healthcare, and educational institutions. Change from paper-based systems into effective, safe digital options.</p>
+                <a href="#consultation" class="bg-[#FF6B00] text-black font-black px-8 py-4 rounded uppercase inline-block shadow-xl">Contact Us Today</a>
+            </div>
+            <div class="rounded-2xl overflow-hidden border-4 border-[#FF6B00] shadow-2xl">
+                <video autoplay muted loop class="w-full">
+                    <source src="source.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </header>
+
+    <section id="process" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black mb-4 uppercase italic">Our Digitization <span class="text-[#FF6B00]">Process</span></h2>
+            <div class="w-24 h-2 bg-black mx-auto mb-12"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="process-card group bg-gray-50 p-4 border-b-8 border-black hover:border-[#FF6B00] transition duration-300">
+                    <img src="scanning.og.jpeg" alt="Scanning" class="rounded-lg shadow-md mb-4 h-64 w-full object-cover">
+                    <h3 class="font-black text-xl uppercase tracking-widest">1. High-Speed Capture</h3>
+                </div>
+                <div class="process-card group bg-gray-50 p-4 border-b-8 border-black hover:border-[#FF6B00] transition duration-300">
+                    <img src="7000 scanner.jpeg" alt="OCR Processing" class="rounded-lg shadow-md mb-4 h-64 w-full object-cover">
+                    <h3 class="font-black text-xl uppercase tracking-widest">2. OCR & Indexing</h3>
+                </div>
+                <div class="process-card group bg-gray-50 p-4 border-b-8 border-black hover:border-[#FF6B00] transition duration-300">
+                    <img src="secure folder.jpg" alt="Secure Delivery" class="rounded-lg shadow-md mb-4 h-64 w-full object-cover">
+                    <h3 class="font-black text-xl uppercase tracking-widest">3. Secure Delivery</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-black text-center mb-12 uppercase italic underline decoration-[#FF6B00]">Common Questions</h2>
+            <div class="space-y-4">
+                <details class="bg-white p-6 border-l-8 border-black shadow-md open:border-[#FF6B00]">
+                    <summary class="font-bold text-lg cursor-pointer">What file formats do you support?</summary>
+                    <p class="mt-4 text-gray-600">We support a variety of file formats like PDF, TIFF, JPEG, and more. Our team ensures high-resolution results for every project.</p>
+                </details>
+                <details class="bg-white p-6 border-l-8 border-black shadow-md open:border-[#FF6B00]">
+                    <summary class="font-bold text-lg cursor-pointer">Is my data secure during the process?</summary>
+                    <p class="mt-4 text-gray-600">We use industry-standard encryption and secure digital archiving to protect sensitive healthcare and legal records.</p>
+                </details>
+                <details class="bg-white p-6 border-l-8 border-black shadow-md open:border-[#FF6B00]">
+                    <summary class="font-bold text-lg cursor-pointer">Do you provide OCR services?</summary>
+                    <p class="mt-4 text-gray-600">Yes! We use OCR software to convert scans into searchable text, allowing you to find files instantly.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="consultation" class="py-20 bg-black">
+        <div class="container mx-auto px-6 max-w-5xl grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-white">
+                <h2 class="text-4xl font-black mb-6 uppercase">Get a <span class="text-[#FF6B00]">Digital Strategy</span></h2>
+                <p class="mb-6 opacity-70">Fill out the details and our team will send a custom proposal to your email.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-map-marker-alt text-[#FF6B00]"></i>
+                        <span>No. 11, Sivan Koil North Mada Street, Villivakkam, Chennai - 600049.</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-envelope text-[#FF6B00]"></i>
+                        <span>gentizesiva2004@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-10 rounded-lg shadow-2xl border-t-8 border-[#FF6B00]">
+                <form id="contact-form" class="space-y-4">
+                    <input type="text" name="user_name" placeholder="Your Name" required class="form-input">
+                    <input type="email" name="user_email" placeholder="Email Address" required class="form-input">
+                    <select name="service" class="form-input">
+                        <option>Document Scanning</option>
+                        <option>Bulk Digitization</option>
+                        <option>Medical Records</option>
+                        <option>Book Publishing</option>
+                    </select>
+                    <textarea name="message" rows="4" placeholder="How many documents or books?" class="form-input"></textarea>
+                    <button type="submit" id="submit-btn" class="w-full bg-black text-white font-black py-4 rounded hover:bg-[#FF6B00] hover:text-black transition uppercase tracking-widest">
+                        Send Inquiry
+                    </button>
+                    <p id="status" class="text-center font-bold mt-4"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-500 py-8 text-center text-sm border-t border-gray-900">
+        <p>© 2026 Gentize Innovations. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
